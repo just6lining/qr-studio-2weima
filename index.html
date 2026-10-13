@@ -10,6 +10,17 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+  <script>
+// 修复中文二维码编码：统一使用 UTF-8
+(function () {
+  if (typeof qrcode !== 'undefined' &&
+      qrcode.stringToBytesFuncs &&
+      qrcode.stringToBytesFuncs['UTF-8']) {
+    qrcode.stringToBytes =
+      qrcode.stringToBytesFuncs['UTF-8'];
+  }
+})();
+</script>
 <link rel="prefetch" href="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js" as="script">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
